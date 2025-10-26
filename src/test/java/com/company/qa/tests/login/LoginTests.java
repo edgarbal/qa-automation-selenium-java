@@ -16,7 +16,7 @@ public class LoginTests {
 
     @BeforeMethod
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
