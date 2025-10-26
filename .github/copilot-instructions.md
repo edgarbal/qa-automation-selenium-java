@@ -32,6 +32,10 @@ Selenium, Java, Maven, TestNG." Use that as the primary source of truth.
   `DesiredCapabilities` or `selenium` to find integration points and
   browser setup code to reuse.
 - Naming: expect test classes to use `*Test` suffix (common with Surefire).
+- Page Object Model (POM) pattern is implemented:
+  - Pages are located under `src/main/java/com/company/qa/pages`.
+  - All pages inherit from `BasePage`.
+  - Tests interact with pages (e.g., `LoginPage`, `InventoryPage`) to perform actions.
 
 # Integration points & external dependencies
 - Selenium WebDriver is the primary external dependency — check `pom.xml`
@@ -44,6 +48,10 @@ Selenium, Java, Maven, TestNG." Use that as the primary source of truth.
 - Run `mvn -B test` locally (or on CI) to validate changes. If Maven is not
   present, add a short note in your PR describing how you validated the
   change.
+- When adding new tests:
+  - If it's a new test class, inherit from `BaseTest`.
+  - If the test requires a new page, create the required Page Object under `src/main/java/com/company/qa/pages` if it does not already exist.
+- Always use best practices for Selenium, Java, Maven, and TestNG.
 
 # Quick search patterns (examples)
 - Find tests: `git grep -n "@Test"` or `git grep -n "class .*Test"`
